@@ -4,5 +4,18 @@ class ArtworkController < ApplicationController
     artworks.to_json
   end
 
+  get '/artworks/:id' do 
+    artwork = Artwork.find(params[:id])
+
+    artwork.to_json
+  
+  end
+
+  post '/artworks/:id'
+    
+  end
+
+  
+
 
 end
