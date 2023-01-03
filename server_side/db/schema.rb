@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 2023_01_02_182238) do
     t.string "year_created"
     t.string "category"
     t.integer "estimated_value"
-    t.boolean "sold"
-    t.integer "buyer_id"
+    t.boolean "sold?"
+    t.integer "sold_to"
     t.integer "max_price"
+    t.integer "start_price"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -29,7 +30,6 @@ ActiveRecord::Schema.define(version: 2023_01_02_182238) do
   create_table "bids", force: :cascade do |t|
     t.integer "buyer_id"
     t.integer "artwork_id"
-    t.datetime "bid_time"
     t.integer "bid_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
