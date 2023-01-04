@@ -12,5 +12,7 @@ use Rack::JSONBodyParser
 run ApplicationController
 
 use ArtworkController
+use BuyerController
+use BidController
 
 
