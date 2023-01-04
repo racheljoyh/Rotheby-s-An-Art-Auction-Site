@@ -1,38 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-
-
-
+import { useState, useEffect} from "react"
+import { Route, Switch, useHistory} from "react-router-dom"
+import HomePage from "/src/components/HomePage"
+import NavBar from "/src/components/NavBar"
+import BuyerProfile from "/src/components/BuyerProfile"
+import Artworks from "/src/components/Artworks"
 
 
 function App() {
 
-  
-  const [count, setCount] = useState(0)
+  const [allArtwork, setAllArtwork]= useState([])
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  let [currentBuyer, setCurrentBuyer] = useState('');
+  const [allBuyers, setAllBuyers] = useState([]);
+
+  // Fetching all Artwork
+  useEffect(() => {
+    fetch("http://localhost:9292/artworks")
+    .then((res) => res.json())
+    .then((artwork) => setAllArtwork(artwork));
+  }, [])
+
+  console.log(allArtwork)
+  let history = useHistory()
+
+
+  function handleLoginClick(){
+    setIsLoggedIn((isLoggedIn) => !isLoggedIn)
+    history.push('/Artworks')
+  }
+
+// GETing buyer profiles
+  useEffect(() => {
+    fetch("http://localhost:9292/buyers")
+    .then((res) => res.json())
+    .then(setAllBuyers);
+  }, []);
+
+  // finding current buyer
+  function handleChangeBuyers(e){
+    // let fullName = `${buyer.first_name} + ${buyer.last_name}`
+    currentBuyer = allBuyers.find((buyer) => buyer.first_name === e.target.value);
+    setCurrentBuyer(currentBuyer);
+  }
+
+  // console.log(currentBuyer)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+        <NavBar
+          isLoggedIn={isLoggedIn}
+          currentBuyer={currentBuyer}
+        />
+        <Switch>
+            <Route exact path = "/">
+              <HomePage
+                onLoginClick={handleLoginClick}
+                currentBuyer={currentBuyer}
+                setCurrentBuyer={setCurrentBuyer}
+                onChangeBuyers={handleChangeBuyers}
+                setAllBuyers={setAllBuyers}
+                allBuyers={allBuyers}
+              />
+            </Route>
+            <Route exact path = "/Artworks" >
+              <Artworks
+                allArtwork={allArtwork}
+              />
+            </Route>
+            <Route exact path = "/myProfile">
+              <BuyerProfile
+                currentBuyer={currentBuyer}
+                setCurrentBuyer={setCurrentBuyer}
+              />
+            </Route>
+        </Switch>
     </div>
   )
 }

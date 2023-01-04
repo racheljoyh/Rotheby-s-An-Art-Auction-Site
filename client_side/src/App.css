@@ -39,3 +39,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.artwork_img {
+  max-width: 500px;
+  max-height: auto;
+}
