@@ -6,12 +6,10 @@ function Artworks({ allArtwork }) {
     console.log(allArtwork)
 
     const artworkArray = allArtwork.map((artwork) => (
-
                 <Artwork
                     key={artwork.id}
                     artwork={artwork}
                 />
-
     ))
 
 return (

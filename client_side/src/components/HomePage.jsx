@@ -83,6 +83,8 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
                         Create Buyer
                     </button>
                 </form>
+            <br></br>
+            <br></br>
             </div>
             <div className="Submit Profile">
             <button className="glow-on-hover" onClick={onLoginClick}>

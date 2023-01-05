@@ -5,6 +5,7 @@ import HomePage from "/src/components/HomePage"
 import NavBar from "/src/components/NavBar"
 import BuyerProfile from "/src/components/BuyerProfile"
 import Artworks from "/src/components/Artworks"
+import ArtworkDetails from './components/ArtworkDetails'
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
     .then((artwork) => setAllArtwork(artwork));
   }, [])
 
-  console.log(allArtwork)
+  // console.log(allArtwork)
   let history = useHistory()
 
 
@@ -45,6 +46,11 @@ function App() {
   }
 
   // console.log(currentBuyer)
+
+    // function filteredArt(selectedArt){
+    //     const clickedArt = artwork.filter((art) => art.id === selectedArt.id);
+    //     setArtwork(clickedArt)
+    // }
 
   return (
     <div>
@@ -73,6 +79,9 @@ function App() {
                 currentBuyer={currentBuyer}
                 setCurrentBuyer={setCurrentBuyer}
               />
+            </Route>
+            <Route path = "/artworks/:id">
+              <ArtworkDetails />
             </Route>
         </Switch>
     </div>

@@ -19,7 +19,7 @@ function NavBar({ isLoggedIn, currentBuyer}) {
             <NavLink exact to ="/myProfile">
                 My Profile
             </NavLink>
-            <h1> welcome, {first_name}! </h1>
+            <h1> Welcome, {first_name}! </h1>
         </nav>
         ) : (
         <nav>
