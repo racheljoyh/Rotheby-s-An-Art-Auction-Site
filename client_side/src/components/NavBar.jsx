@@ -7,7 +7,7 @@ function NavBar({ isLoggedIn, currentBuyer}) {
     // console.log(currentBuyer)
 
     return (
-        <div>
+        <div className="navBar">
         {isLoggedIn ? (
         <nav>
             <NavLink exact to ="/">
@@ -22,7 +22,7 @@ function NavBar({ isLoggedIn, currentBuyer}) {
             <h1> Hello, {first_name}! </h1>
         </nav>
         ) : (
-        <nav>
+        <nav className="navBar">
             <NavLink exact to ="/">
                 Home
             </NavLink>

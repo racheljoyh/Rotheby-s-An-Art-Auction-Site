@@ -48,9 +48,9 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
     return (
         <div>
             <div>
-            <div className="about">
-                <h1>Welcome to Rotheby's</h1>
-            </div>
+                <div className="about">
+                    <h1>Welcome to Rotheby's</h1>
+                </div>
             <div className="returningBuyer">
                 <h3> Returning Buyer? </h3>
                 <h4> Find your Name </h4>
@@ -77,20 +77,21 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
                     </input>
                     <br></br>
                     <button
+                        className="submitNewNameBtn"
                         type ="sumbit"
                         // onClick={handleLoginClick}
                     >
                         Create Buyer
                     </button>
                 </form>
-            <br></br>
-            <br></br>
+                <br></br>
+                <br></br>
             </div>
             <div className="Submit Profile">
-            <button className="glow-on-hover" onClick={onLoginClick}>
-                Login
-            </button>
-        </div>
+                <button className="glow-on-hover" onClick={onLoginClick}>
+                    Login
+                </button>
+            </div>
             </div>
         </div>
     );

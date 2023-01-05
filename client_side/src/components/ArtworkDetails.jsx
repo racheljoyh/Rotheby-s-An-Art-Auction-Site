@@ -9,7 +9,8 @@ function ArtworkDetails({currentBuyer}) {
     const { id } = useParams();
     const [isSold, setIsSold] = useState(false)
 
-    console.log(bid)
+    // console.log(bid)
+    // console.log(bid.bid_price)
 
     useEffect(() => {
         fetch(`http://localhost:9292/artworks/${id}`)
@@ -26,6 +27,7 @@ function ArtworkDetails({currentBuyer}) {
 
     function handleNewBid(e) {
         e.preventDefault();
+    // functions to optimistically render page?
 
         const replaceBid = {
             bid_price: newBid,
@@ -44,7 +46,12 @@ function ArtworkDetails({currentBuyer}) {
             .then((data) => setBid(data));
 
         setBid("");
-        alert("Your bid has been submitted!");
+
+        if (newBid > bid.bid_price) {
+            alert("Your bid has been submitted!")
+        } else if (newBid <= bid.bid_price) {
+            alert("Your bid must be higher than current bid amount!")
+        }
 
         fetch(`http://localhost:9292/artworks/${id}`, {
             method: "PATCH",
@@ -57,60 +64,50 @@ function ArtworkDetails({currentBuyer}) {
         })
             .then((res) => res.json())
             .then(setIsSold);
+        console.log(newBid)
+        console.log(bid.bid_price)
+        // bid.bid_price = newBid
     }
 
-    // function handleSoldTo(e) {
-    //     e.preventDefault();
+    console.log(bid.bid_price)
+    console.log(newBid)
 
-    //     fetch(`http://localhost:9292/artworks/${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             sold: isSold,
-    //         }),
-    //     })
-    //         .then((res) => res.json())
-    //         .then(setIsSold);
-
-    //     alert("Congrats! This name has been updated!")
-    // }
+    function handleSetNewBid(e) {
+        setNewBid(e.target.value)
+    }
 
     return (
         <div>
-            <div>
-                <h2>{title}</h2>
+            <div className="artworkDetails">
+                <h2 className="artworkName">{title}</h2>
                 <div>
                     <img className="artwork_img" src={image_url}/>
                 </div>
-                <h4>Artist: {artist}</h4>
-                <h4>Year Created: {year_created}</h4>
-                <h4>Category: {category}</h4>
-                <h4>Estimated Value: ${estimated_value}</h4>
+                <h4 className="artworkArtist">Artist: {artist}</h4>
+                <h4 className="artwortYearCreated">Year Created: {year_created}</h4>
+                <h4 className="artworkCategory">Category: {category}</h4>
+                <h4 className="artworkEstimatedValue">Estimated Value: ${estimated_value}</h4>
                 {sold === true ? <h4> {currentBuyer.first_name} has won this artwork </h4> : null}
             </div>
             <br></br>
-            <div>
+            <div className="artworkBid">
                 { sold === true ? <h3> Winning Bid: ${bid.bid_price} </h3> : <h3> Current Bid: ${bid.bid_price} </h3>}
             </div>
-            <div>
+            <div className="bidForm">
                 { sold === false ? (
                 <form onSubmit={handleNewBid}>
                             <input
-                                className="input"
+                                className="bidInput"
                                 type="text"
                                 value={newBid}
-                                onChange={(e) => setNewBid(e.target.value)}
+                                onChange={handleSetNewBid}
                             ></input>
                             <button type= "submit" className="glow-on-hover">
                             Place Bid
                         </button>
-                </form> ): ( "SOLD"
-                )}
+                </form> ) : ("SOLD")}
             </div>
         </div>
-
     );
 }
 
