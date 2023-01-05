@@ -1,7 +1,7 @@
 import Artwork from "./Artwork";
 import { Route, Switch } from "react-router-dom"
 
-function Artworks({ allArtwork }) {
+function Artworks({ allArtwork, currentBuyer }) {
 
     console.log(allArtwork)
 
@@ -9,6 +9,7 @@ function Artworks({ allArtwork }) {
                 <Artwork
                     key={artwork.id}
                     artwork={artwork}
+                    currentBuyer={currentBuyer}
                 />
     ))
 

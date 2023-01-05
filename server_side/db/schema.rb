@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2023_01_02_182238) do
     t.string "year_created"
     t.string "category"
     t.integer "estimated_value"
-    t.boolean "sold?"
+    t.boolean "sold"
     t.integer "sold_to"
     t.integer "max_price"
     t.integer "start_price"

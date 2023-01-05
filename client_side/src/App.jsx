@@ -72,6 +72,7 @@ function App() {
             <Route exact path = "/Artworks" >
               <Artworks
                 allArtwork={allArtwork}
+                currentBuyer={currentBuyer}
               />
             </Route>
             <Route exact path = "/myProfile">
@@ -81,7 +82,9 @@ function App() {
               />
             </Route>
             <Route path = "/artworks/:id">
-              <ArtworkDetails />
+              <ArtworkDetails
+                currentBuyer={currentBuyer}
+              />
             </Route>
         </Switch>
     </div>

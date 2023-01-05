@@ -49,7 +49,7 @@ class ArtworkController < ApplicationController
     puts winning_buyer
 
     if (current_bid >= highest_value)
-      status.update(sold?: true, sold_to: winning_buyer)
+      status.update(sold: true, sold_to: winning_buyer)
       status.to_json
     end
        

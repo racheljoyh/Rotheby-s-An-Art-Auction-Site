@@ -6,7 +6,7 @@ class CreateArtworks < ActiveRecord::Migration[6.1]
       t.string :year_created
       t.string :category
       t.integer :estimated_value
-      t.boolean :sold?
+      t.boolean :sold
       t.integer :sold_to
       t.integer :max_price
       t.integer :start_price
