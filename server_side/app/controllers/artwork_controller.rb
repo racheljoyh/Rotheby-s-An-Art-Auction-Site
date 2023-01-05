@@ -12,7 +12,7 @@ class ArtworkController < ApplicationController
   end
 
 
-  post '/artworks/:id/bids' do
+  post '/artworks/:id' do
 
     current_bid = Bid.highest_bid(params[:id]).bid_price
     highest_value = Artwork.find(params[:id]).max_price

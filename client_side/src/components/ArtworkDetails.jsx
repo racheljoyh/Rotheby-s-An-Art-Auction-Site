@@ -5,7 +5,7 @@ function ArtworkDetails() {
 
 
     const [artwork, setArtwork] = useState(null);
-    const [bid, setBid] = useState(null);
+    const [bid, setBid] = useState("");
     const { id } = useParams();
 
     // useEffect(() => {
@@ -35,9 +35,10 @@ function ArtworkDetails() {
 
         const newBid = {
             bid_price: bid,
+            artwork_id: id
         };
 
-        fetch(`http://localhost:9292/artworks/${id}/bids`, {
+        fetch(`http://localhost:9292/artworks/${id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
