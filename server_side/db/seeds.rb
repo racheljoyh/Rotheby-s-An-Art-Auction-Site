@@ -24,9 +24,18 @@ a12 = Artwork.create(title: "The American Wing", artist: "Thomas Cole", year_cre
 
 puts "creating bids"
 
-Bid.create(buyer_id: b1.id, artwork_id: a3.id, bid_price: 3500)
-Bid.create(buyer_id: b2.id, artwork_id: a2.id, bid_price: 8500)
-Bid.create(buyer_id: b3.id, artwork_id: a2.id, bid_price: 8000)
+Bid.create(buyer_id: b1.id, artwork_id: a1.id, bid_price: a1.start_price)
+Bid.create(buyer_id: b2.id, artwork_id: a2.id, bid_price: a2.start_price)
+Bid.create(buyer_id: b3.id, artwork_id: a3.id, bid_price: a3.start_price)
+Bid.create(buyer_id: b1.id, artwork_id: a4.id, bid_price: a4.start_price)
+Bid.create(buyer_id: b2.id, artwork_id: a5.id, bid_price: a5.start_price)
+Bid.create(buyer_id: b3.id, artwork_id: a6.id, bid_price: a6.start_price)
+Bid.create(buyer_id: b1.id, artwork_id: a7.id, bid_price: a7.start_price)
+Bid.create(buyer_id: b2.id, artwork_id: a8.id, bid_price: a8.start_price)
+Bid.create(buyer_id: b3.id, artwork_id: a9.id, bid_price: a9.start_price)
+Bid.create(buyer_id: b1.id, artwork_id: a10.id, bid_price: a10.start_price)
+Bid.create(buyer_id: b2.id, artwork_id: a11.id, bid_price: a11.start_price)
+Bid.create(buyer_id: b3.id, artwork_id: a12.id, bid_price: a12.start_price)
 
 puts "seeding done!"
 

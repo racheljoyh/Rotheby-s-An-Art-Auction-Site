@@ -67,7 +67,7 @@ function ArtworkDetails() {
             </div>
             <br></br>
             <div>
-                { bid === null ? <h3> No Current Bids </h3> : <h3> Current Bid: {bid.bid_price} </h3>}
+                { bid === null ? <h3> No Current Bids </h3> : <h3> Current Bid: ${bid.bid_price} </h3>}
             </div>
             <div>
                 <form onSubmit={handleNewBid}>

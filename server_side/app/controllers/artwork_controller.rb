@@ -25,12 +25,10 @@ class ArtworkController < ApplicationController
     puts current_bid
     puts highest_value
     
-
-
-    if (new_bid.bid_price > current_bid) 
-      new_bid.to_json
-      if (new_bid.bid_price >= highest_value)
-        "SOLD"
+      if (new_bid.bid_price > current_bid) 
+        new_bid.to_json
+        if (new_bid.bid_price >= highest_value)
+          "SOLD"
       end
     elsif (new_bid.bid_price <= current_bid)
       "Your bid must be higher than current bid amount!"
