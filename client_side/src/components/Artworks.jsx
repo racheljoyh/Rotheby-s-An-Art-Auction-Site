@@ -14,8 +14,8 @@ function Artworks({ allArtwork, currentBuyer }) {
     ))
 
 return (
-    <div>
-        <ul>{artworkArray}</ul>
+    <div className="allArtwork">
+        <div className="artworkContainer">{artworkArray}</div>
     </div>
 )}
 

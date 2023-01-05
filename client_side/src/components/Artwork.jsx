@@ -18,16 +18,18 @@ function Artwork({artwork, currentBuyer}) {
             <div>
                 <img className="artwork_img" src={image_url}/>
             </div>
-            <h4 className="artworkArtist">Artist: {artist}</h4>
-            <h4 className="artwortYearCreated">Year Created: {year_created}</h4>
-            <h4 className="artworkCategory">Category: {category}</h4>
-            <h4 className="artworkEstimatedValue">Estimated Value: ${estimated_value}</h4>
+            <div className="artworkInfo">
+                <h4 className="artworkArtist">Artist: {artist}</h4>
+                <h4 className="artwortYearCreated">Year Created: {year_created}</h4>
+                <h4 className="artworkCategory">Category: {category}</h4>
+                <h4 className="artworkEstimatedValue">Estimated Value: ${estimated_value}</h4>
+            </div>
             { sold === false ? (
                 <button className="bidButton" onClick={handleRedirect}>
                     Bid on this Artwork
                 </button>
             ) :
-            <div classname="sold"> SOLD to {currentBuyer.first_name} </div> }
+            <div classname="sold"> <span className="sold-label">SOLD</span> to {currentBuyer.first_name} </div> }
         </div>
     );
 }
