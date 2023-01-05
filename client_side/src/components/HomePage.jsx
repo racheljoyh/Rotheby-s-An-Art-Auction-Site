@@ -49,7 +49,7 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
         <div>
             <div>
                 <div className="about">
-                    <h1>Welcome to Rotheby's</h1>
+                    <h1>Welcome to <span className="title">Rotheby's</span></h1>
                 </div>
             <div className="returningBuyer">
                 <h3> Returning Buyer? </h3>

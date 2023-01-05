@@ -8,6 +8,7 @@ function NavBar({ isLoggedIn, currentBuyer}) {
 
     return (
         <div className="navBar">
+            <h3 className="navTitle"> Rotheby's | An Auction House </h3>
         {isLoggedIn ? (
         <nav>
             <NavLink exact to ="/">
