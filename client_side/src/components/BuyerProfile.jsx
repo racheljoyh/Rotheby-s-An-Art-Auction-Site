@@ -40,36 +40,41 @@ function BuyerProfile({currentBuyer, setCurrentBuyer}) {
     }
 
     return (
-        <div>
-            {currentBuyer.length === 0 ? null :
-            <div>
-            <div className="profileButtons">
-                {showForm ? (
+        <div className="edit-profile">
+            <div className="edit-profile-container">
                 <div>
-                    <form onSubmit={handleNewSubmitName}>
-                        <input
-                            className="input"
-                            type="text"
-                            value={buyerName}
-                            onChange={(e) => setBuyerName(e.target.value)}
-                        ></input>
-                        <button type= "submit" className="glow-on-hover">
-                        Edit Name
+                    <p className="edit-profile-text">Edit your Profile :</p>
+                </div>
+                {currentBuyer.length === 0 ? null :
+                <div>
+                <div className="profileButtons">
+                    {showForm ? (
+                    <div>
+                        <form onSubmit={handleNewSubmitName}>
+                            <input
+                                className="edit-input"
+                                type="text"
+                                value={buyerName}
+                                onChange={(e) => setBuyerName(e.target.value)}
+                            ></input>
+                            <button type= "submit" className="glow-on-hover">
+                            Edit Name
+                        </button>
+                        </form>
+                    </div> ) : null}
+                    <button className="keep-name-btn" onClick={handleShowForm}>
+                        {showForm ? "Keep My Name" : "Edit Your Name"}
                     </button>
-                    </form>
-                </div> ) : null}
-                <button className="userButtons" onClick={handleShowForm}>
-                    {showForm ? "Keep My Name" : "Edit Your Name"}
-                </button>
+                </div>
+                    <br></br>
+                <div className="delete-btn" >
+                    <button onClick={handleDeleteUser}>
+                        Delete Your Profile
+                    </button>
+                </div>
+                </div>
+                }
             </div>
-                <br></br>
-            <div>
-                <button className="userButtons" onClick={handleDeleteUser}>
-                    Delete Your Profile
-                </button>
-            </div>
-            </div>
-            }
         </div>
     );
 }

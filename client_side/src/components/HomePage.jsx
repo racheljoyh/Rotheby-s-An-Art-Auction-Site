@@ -46,52 +46,60 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
 
 
     return (
-        <div>
-            <div>
-                <div className="about">
-                    <h1>Welcome to <span className="title">Rotheby's</span></h1>
-                </div>
-            <div className="returningBuyer">
-                <h3> Returning Buyer? </h3>
-                <h4> Find your Name </h4>
-                <div className="selectName">
-                    <select onChange={(e) => onChangeBuyers(e)}>
-                        <option></option>
-                            {allBuyers.map((buyer) => (
-                                <option key={buyer.id}>{buyer.first_name}</option>
-                            ))}
-                    </select>
+        <div className="homepage-container">
+
+            {/* Welcome div */}
+            <div className="welcome">
+                <h1>Welcome to<span className="title"> Rotheby's</span></h1>
+            </div>
+
+            <div className="buyer-info">
+                {/* returning buyer div */}
+                <div className="returning-buyer">
+                    <h3 className="buyer-title"> Returning Buyer? </h3>
+                    <h4 className="name"> Find your Name </h4>
+                    <div className="selectName">
+                        <select className="select-name" onChange={(e) => onChangeBuyers(e)}>
+                            <option></option>
+                                {allBuyers.map((buyer) => (
+                                    <option key={buyer.id}>{buyer.first_name}</option>
+                                ))}
+                        </select>
+                    </div>
                     <div className="selectArrow"></div>
                 </div>
+
+                {/* new buyer div */}
+                <div className="new-buyer">
+                    <h3 className="buyer-title"> New Buyer? </h3>
+                    <h4 className="name"> Enter Your Name </h4>
+                    <form onSubmit={(e) => createBuyer(e)}>
+                        <input
+                            className="select-name"
+                            value={buyerName}
+                            onChange={(e) => setBuyername(e.target.value)}
+                            type = "text"
+                            placeholder="Enter your name..."
+                        >
+                        </input>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <button
+                            className="submitNewNameBtn"
+                            type ="sumbit"
+                        >
+                            Create Buyer
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div className="newBuyer">
-                <h3> New Buyer? </h3>
-                <h4> Enter Your Name </h4>
-                <form onSubmit={(e) => createBuyer(e)}>
-                    <input
-                        value={buyerName}
-                        onChange={(e) => setBuyername(e.target.value)}
-                        type = "text"
-                        placeholder="Enter your name..."
-                    >
-                    </input>
-                    <br></br>
-                    <button
-                        className="submitNewNameBtn"
-                        type ="sumbit"
-                        // onClick={handleLoginClick}
-                    >
-                        Create Buyer
-                    </button>
-                </form>
-                <br></br>
-                <br></br>
-            </div>
-            <div className="Submit Profile">
+
+            {/* submit button div */}
+            <div className="submit-profile-btn">
                 <button className="glow-on-hover" onClick={onLoginClick}>
-                    Login
+                    Log In
                 </button>
-            </div>
             </div>
         </div>
     );
