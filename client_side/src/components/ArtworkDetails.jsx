@@ -31,6 +31,8 @@ function ArtworkDetails({ currentBuyer }) {
     sold,
   } = artwork;
 
+  let number = estimated_value.toLocaleString();
+
   function handleNewBid(e) {
     e.preventDefault();
     // functions to optimistically render page?
@@ -83,46 +85,44 @@ function ArtworkDetails({ currentBuyer }) {
   }
 
   return (
-    <div>
-      <div className="artworkDetails">
-        <h2 className="artworkName">{title}</h2>
-
+    <div className="artworkSingleContainer">
+      <div className="title-img-container">
         <img className="artwork_img" src={image_url} />
-
-        <h4 className="artworkArtist">Artist: {artist}</h4>
-        <h4 className="artwortYearCreated">Year Created: {year_created}</h4>
+      </div>
+      <div className="details-bidform-container">
+        <h4 className="artworkArtist">{artist}</h4>
+        <h2 className="artworkName">{title}</h2>
+        <h4 className="artwortYearCreated">{year_created}</h4>
         <h4 className="artworkCategory">Category: {category}</h4>
-        <h4 className="artworkEstimatedValue">
-          Estimated Value: ${estimated_value}
-        </h4>
+        <h4 className="artworkEstimatedValue">Estimate: ${number}</h4>
         {sold === true ? (
           <h4> {currentBuyer.first_name} has won this artwork </h4>
         ) : null}
-      </div>
-      <br></br>
-      <div className="artworkBid">
-        {sold === true ? (
-          <h3> Winning Bid: ${bid.bid_price} </h3>
-        ) : (
-          <h3> Current Bid: ${bid.bid_price} </h3>
-        )}
-      </div>
-      <div className="bidForm">
-        {sold === false ? (
-          <form onSubmit={handleNewBid}>
-            <input
-              className="bidInput"
-              type="text"
-              value={newBid}
-              onChange={handleSetNewBid}
-            ></input>
-            <button type="submit" className="glow-on-hover">
-              Place Bid
-            </button>
-          </form>
-        ) : (
-          "SOLD"
-        )}
+        <br></br>
+        <div className="artworkBid">
+          {sold === true ? (
+            <h3> Winning Bid: ${bid.bid_price} </h3>
+          ) : (
+            <h3> Current Bid: ${bid.bid_price} </h3>
+          )}
+        </div>
+        <div className="bidForm">
+          {sold === false ? (
+            <form onSubmit={handleNewBid}>
+              <input
+                className="bidInput"
+                type="text"
+                value={newBid}
+                onChange={handleSetNewBid}
+              ></input>
+              <button type="submit" className="bid-btn">
+                Place Bid
+              </button>
+            </form>
+          ) : (
+            "SOLD"
+          )}
+        </div>
       </div>
     </div>
   );

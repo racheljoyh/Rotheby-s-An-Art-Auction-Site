@@ -15,6 +15,8 @@ function Artwork({ artwork, currentBuyer }) {
 
   const history = useHistory();
 
+  let number = estimated_value.toLocaleString();
+
   function handleRedirect() {
     // redirect to /artworks/:id
     history.push(`/artworks/${id}`);
@@ -32,17 +34,15 @@ function Artwork({ artwork, currentBuyer }) {
             Place Bid
           </button>
         ) : (
-          <div classname="sold">
+          <div className="sold">
             {" "}
             <span className="sold-label">SOLD TO : </span>{" "}
             {currentBuyer.first_name}{" "}
           </div>
         )}
-        <h4 className="artwortYearCreated">Year Created: {year_created}</h4>
+        <h4 className="artwortYearCreated">{year_created}</h4>
         <h4 className="artworkCategory">Category: {category}</h4>
-        <h4 className="artworkEstimatedValue">
-          Estimated Value: ${estimated_value}
-        </h4>
+        <h4 className="artworkEstimatedValue">Estimate: ${number}</h4>
       </div>
     </div>
   );

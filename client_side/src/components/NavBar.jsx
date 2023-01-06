@@ -8,7 +8,7 @@ function NavBar({ isLoggedIn, currentBuyer }) {
   return (
     <div className="navBar">
       <h3>
-        <span className="navFancy">Rotheby's</span> | An Auction House
+        <span className="navFancy">Rotheby's |</span> An Auction House
       </h3>
       {isLoggedIn ? (
         <div className="navLinks-name">

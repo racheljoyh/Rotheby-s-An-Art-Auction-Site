@@ -1,6 +1,3 @@
-#root {
-}
-
 body {
   font-family: "Didact Gothic", sans-serif;
   margin: 0px;
@@ -14,6 +11,7 @@ html {
 .artwork_img {
   max-width: 500px;
   max-height: auto;
+  box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);
 }
 
 .artworkContainer {
@@ -37,7 +35,7 @@ html {
 
 .artworkInfo {
   padding-left: 50px;
-  align-self: start;
+  align-self: flex-start;
 }
 
 .sold-label {
@@ -52,9 +50,9 @@ html {
 .navBar {
   display: flex;
   justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-shadow: 0 5px 5px -2px gray;
+  padding-left: calc((100vw - (1439px - 64px)) / 2);
+  padding-right: calc((100vw - (1439px - 64px)) / 2);
+  box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);
 }
 
 .greeting {
@@ -86,4 +84,24 @@ html {
 .artworkArtist {
   font-size: 20px;
   font-family: "DM Serif Display";
+}
+
+.artworkSingleContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.bidInput {
+  font-family: "Didact Gothic", sans-serif;
+  padding: 0.4em 1.2em;
+  margin-right: 10px;
+}
+
+.details-bidform-container {
+  padding: 20px;
+  align-self: center;
+  box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.247);
 }
