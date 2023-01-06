@@ -8,9 +8,6 @@ function ArtworkDetails({ currentBuyer }) {
   const { id } = useParams();
   const [isSold, setIsSold] = useState(false);
 
-  // console.log(bid)
-  // console.log(bid.bid_price)
-
   useEffect(() => {
     fetch(`http://localhost:9292/artworks/${id}`)
       .then((res) => res.json())
@@ -53,8 +50,6 @@ function ArtworkDetails({ currentBuyer }) {
       .then((res) => res.json())
       .then((data) => setBid(data));
 
-    setBid("");
-
     if (newBid > bid.bid_price) {
       alert("Your bid has been submitted!");
     } else if (newBid <= bid.bid_price) {
@@ -72,13 +67,7 @@ function ArtworkDetails({ currentBuyer }) {
     })
       .then((res) => res.json())
       .then(setIsSold);
-    console.log(newBid);
-    console.log(bid.bid_price);
-    // bid.bid_price = newBid
   }
-
-  console.log(bid.bid_price);
-  console.log(newBid);
 
   function handleSetNewBid(e) {
     setNewBid(e.target.value);
