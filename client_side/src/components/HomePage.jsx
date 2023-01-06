@@ -52,6 +52,18 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
                         </select>
                     </div>
                     <div className="selectArrow"></div>
+                        {/* submit button div */}
+            <div className="submit-profile-btn">
+            {isLoggedIn ? (
+                <button className="glow-on-hover" onClick={onLoginClick}>
+                    Log Out
+                </button>
+                    ) : (
+                <button className="glow-on-hover" onClick={onLoginClick}>
+                    Log In
+                </button>
+            )}
+            </div>
                 </div>
 
                 {/* new buyer div */}
@@ -80,18 +92,7 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
                 </div>
             </div>
 
-            {/* submit button div */}
-            <div className="submit-profile-btn">
-            {isLoggedIn ? (
-                <button className="glow-on-hover" onClick={onLoginClick}>
-                    Log Out
-                </button>
-                    ) : (
-                <button className="glow-on-hover" onClick={onLoginClick}>
-                    Log In
-                </button>
-            )}
-            </div>
+        
         </div>
     );
 }

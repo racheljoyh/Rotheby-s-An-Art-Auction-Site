@@ -12,6 +12,7 @@ function App() {
   const [allArtwork, setAllArtwork]= useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   let [currentBuyer, setCurrentBuyer] = useState('');
+  
   const [allBuyers, setAllBuyers] = useState([]);
   const [ searchQuery, setSearchQuery ] = useState("")
   const [ filterBy, setFilterBy ] = useState("All")

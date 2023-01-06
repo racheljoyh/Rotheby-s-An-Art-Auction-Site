@@ -8,6 +8,7 @@ function ArtworkDetails({ currentBuyer }) {
   const [newBid, setNewBid] = useState("");
   const { id } = useParams();
   const [isSold, setIsSold] = useState(false);
+  let [winningBuyer, setWinningBuyer] = useState('')
 
   useEffect(() => {
     fetch(`http://localhost:9292/artworks/${id}`)

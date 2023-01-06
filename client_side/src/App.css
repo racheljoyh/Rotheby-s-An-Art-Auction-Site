@@ -159,13 +159,14 @@ html {
 .returning-buyer{
   padding-left: 100px;
   padding-right: 100px;
-  padding-top: 130px;
-  padding-bottom: 155px;
+  padding-top: 90px;
+  padding-bottom: 55px;
   text-align: center;
   box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);;
   width: 20%;
   float: left;
   background-color: rgba(239, 235, 235, 0.384);
+  align-self: center;
 }
 
 .new-buyer{
@@ -178,6 +179,7 @@ html {
   width: 20%;
   float: left;
   background-color: rgba(239, 235, 235, 0.384);
+  align-self: center;
 }
 
 .name {

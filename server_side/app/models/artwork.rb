@@ -7,4 +7,16 @@ class Artwork < ActiveRecord::Base
   #   self.all.
   # end
 
+  # def winning_buyer
+  #   self.buyers.map do |b|
+  #     b_name = buyers.find(b.id).first_name
+  #     self.sold_to = b_name
+  #     "#{sold_to} has won this artwork!"
+  #   end
+  # end
+
+  # def winning_buyer
+  #   self.sold_to
+  # end
+
 end
