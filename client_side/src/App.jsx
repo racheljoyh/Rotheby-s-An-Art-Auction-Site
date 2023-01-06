@@ -7,13 +7,15 @@ import BuyerProfile from "/src/components/BuyerProfile"
 import Artworks from "/src/components/Artworks"
 import ArtworkDetails from './components/ArtworkDetails'
 
-
 function App() {
 
   const [allArtwork, setAllArtwork]= useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   let [currentBuyer, setCurrentBuyer] = useState('');
   const [allBuyers, setAllBuyers] = useState([]);
+  const [ searchQuery, setSearchQuery ] = useState("")
+  const [ filterBy, setFilterBy ] = useState("All")
+  // const [ sortBy, setSortBy ] = useState("Price");
 
   // Fetching all Artwork
   useEffect(() => {
@@ -45,12 +47,27 @@ function App() {
     setCurrentBuyer(currentBuyer);
   }
 
-  // console.log(currentBuyer)
+  // const sortedArtwork = [...allArtwork].sort((allArtwork1, allArtwork2) => {
+  //   if (sortBy === "Price") {
+  //     return allArtwork1.estimated_value.localeCompare(allArtwork2.estimated_value);
+  //   } else if (sortBy === "Category") {
+  //     return allArtwork1.category.localeCompare(allArtwork2.category);
+  //   } else {
+  //     return null
+  //   }
+  // });
 
-    // function filteredArt(selectedArt){
-    //     const clickedArt = artwork.filter((art) => art.id === selectedArt.id);
-    //     setArtwork(clickedArt)
-    // }
+  const filteredSearchArtwork = allArtwork.filter((art) => {
+    if (filterBy === "All") return true;
+    return (art.category.toLowerCase()) === filterBy.toLowerCase()});
+
+
+  const filteredArtwork = filteredSearchArtwork.filter((art) => {
+    return (
+      art.title.toLowerCase().includes(searchQuery.toLowerCase())
+      || art.artist.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  })
 
   return (
     <div>
@@ -71,8 +88,18 @@ function App() {
             </Route>
             <Route exact path = "/Artworks" >
               <Artworks
-                allArtwork={allArtwork}
+                allArtwork={filteredArtwork}
                 currentBuyer={currentBuyer}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                filterBy={filterBy}
+                setFilterBy={setFilterBy}
+                // sortBy={sortBy}
+                // setSortBy={setSortBy}
+
+
+
+
               />
             </Route>
             <Route exact path = "/myProfile">

@@ -30,21 +30,6 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
         alert("New buyer has been created!");
     }
 
-// // GETing buyer profiles
-//     useEffect(() => {
-//         fetch("http://localhost:9292/buyers")
-//         .then((res) => res.json())
-//         .then(setAllBuyers);
-//     }, []);
-
-// // finding current buyer
-//     function handleChangeBuyers(e){
-//         // let fullName = `${buyer.first_name} + ${buyer.last_name}`
-//         let foundBuyer = allBuyers.find((buyer) => buyer.first_name === e.target.value);
-//         setCurrentBuyer(foundBuyer);
-//     }
-
-
     return (
         <div className="homepage-container">
 
@@ -57,7 +42,7 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
                 {/* returning buyer div */}
                 <div className="returning-buyer">
                     <h3 className="buyer-title"> Returning Buyer? </h3>
-                    <h4 className="name"> Find your Name </h4>
+                    <h4 className="name"> Find Your Name </h4>
                     <div className="selectName">
                         <select className="select-name" onChange={(e) => onChangeBuyers(e)}>
                             <option></option>

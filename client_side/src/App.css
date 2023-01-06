@@ -11,6 +11,37 @@ html {
   margin: 0px;
 }
 
+.find-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.search-container {
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+#searchbar{
+  padding: 10px;
+  width: 200px;
+  font-size: 18px;
+}
+
+.filter-container {
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+#filterbar{
+  padding: 10px;
+  /* width: auto; */
+  font-size: 18px;
+}
+
 .artwork_img {
   max-width: 500px;
   max-height: auto;
@@ -23,9 +54,10 @@ html {
   column-gap: 50px;
   row-gap: 50px;
   max-width: 100%;
-  padding-top: 50px;
+  padding-top: 30px;
   /* justify-content: center;
   align-items: center; */
+  margin-top: 5px;
 }
 
 .artworkCard {
@@ -61,6 +93,7 @@ html {
   font-size: 20px;
   padding-left: 50px;
   font-weight: bold;
+  color: rgb(42, 42, 140);
 }
 
 .linksContainer {
@@ -115,6 +148,10 @@ html {
   text-align: center;
 }
 
+.submitNewNameBtn{
+  font-size: 20px;
+}
+
 .returning-buyer{
   padding-left: 100px;
   padding-right: 100px;
@@ -151,6 +188,9 @@ html {
 
 .select-name{
   font-size: 15px;
+  padding: 10px;
+  width: 150px;
+  font-size: 15px;
 }
 
 .edit-profile {
@@ -158,9 +198,7 @@ html {
 }
 
 .edit-profile-container {
-  /* display: grid; */
   display: flex;
-  /* grid-template-columns: repeat(3, 1fr); */
   justify-content: space-between;
   margin-top: 50px;
   padding: 30px;

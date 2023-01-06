@@ -43,7 +43,7 @@ function BuyerProfile({currentBuyer, setCurrentBuyer}) {
         <div className="edit-profile">
             <div className="edit-profile-container">
                 <div>
-                    <p className="edit-profile-text">Edit your Profile :</p>
+                    <p className="edit-profile-text">Edit Your Profile :</p>
                 </div>
                 {currentBuyer.length === 0 ? null :
                 <div>
