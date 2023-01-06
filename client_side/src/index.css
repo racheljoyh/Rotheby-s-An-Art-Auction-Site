@@ -1,46 +1,11 @@
-/* :root {
-  font-family: 'Didact Gothic', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-.title {
-  font-family: 'DM Serif Display', sans-serif;
-}
-
-
-
-/* body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-} */
-
-/* h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
-
 button {
-  border-radius: 8px;
+  border-radius: 3px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
-  background-color: #74747441;
+  font-weight: bold;
+  font-family: inherit;
+  background-color: #b8afaf;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -55,13 +20,13 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
   }
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #74747441;
+    background-color: #7474742b;
   }
 }
 

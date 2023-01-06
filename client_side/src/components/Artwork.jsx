@@ -20,6 +20,8 @@ function Artwork({ artwork, currentBuyer }) {
     history.push(`/artworks/${id}`);
   }
 
+  let num = estimated_value.toLocaleString()
+
   return (
     <div className="artworkCard">
       <h2 className="artworkName">{title}</h2>
@@ -33,15 +35,17 @@ function Artwork({ artwork, currentBuyer }) {
           </button>
         ) : (
           <div classname="sold">
-            {" "}
-            <span className="sold-label">SOLD TO : </span>{" "}
-            {currentBuyer.first_name}{" "}
+          <button className="bidButton" onClick={handleRedirect}>
+            SOLD
+          </button>
+            {/* <span className="sold-label">SOLD </span> */}
+            {/* {artwork.sold_to} */}
           </div>
         )}
-        <h4 className="artwortYearCreated">Year Created: {year_created}</h4>
+        <h4 className="artwortYearCreated">{year_created}</h4>
         <h4 className="artworkCategory">Category: {category}</h4>
         <h4 className="artworkEstimatedValue">
-          Estimated Value: ${estimated_value}
+          Estimate: ${num}
         </h4>
       </div>
     </div>

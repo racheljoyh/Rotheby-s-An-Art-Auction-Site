@@ -3,14 +3,14 @@ import { useHistory } from "react-router-dom"
 import Artworks from "./Artworks";
 import BuyerProfile from "./BuyerProfile";
 
-function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers, allBuyers, setAllBuyers }) {
+function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers, allBuyers, setAllBuyers, isLoggedIn }) {
     const [buyerName, setBuyername] = useState("");
     // const [allBuyers, setAllBuyers] = useState([]);
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 // POSTing new buyer profile
     function createBuyer(e) {
-        e.preventDefault();
+        // e.preventDefault();
 
         const newBuyer = {
             first_name: buyerName,
@@ -82,9 +82,15 @@ function HomePage({ onLoginClick, setCurrentBuyer, currentBuyer, onChangeBuyers,
 
             {/* submit button div */}
             <div className="submit-profile-btn">
+            {isLoggedIn ? (
+                <button className="glow-on-hover" onClick={onLoginClick}>
+                    Log Out
+                </button>
+                    ) : (
                 <button className="glow-on-hover" onClick={onLoginClick}>
                     Log In
                 </button>
+            )}
             </div>
         </div>
     );

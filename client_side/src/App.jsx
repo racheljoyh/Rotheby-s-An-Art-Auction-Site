@@ -30,7 +30,7 @@ function App() {
 
   function handleLoginClick(){
     setIsLoggedIn((isLoggedIn) => !isLoggedIn)
-    history.push('/Artworks')
+    isLoggedIn ? history.push('/') : history.push('/Artworks')
   }
 
 // GETing buyer profiles
@@ -46,16 +46,6 @@ function App() {
     currentBuyer = allBuyers.find((buyer) => buyer.first_name === e.target.value);
     setCurrentBuyer(currentBuyer);
   }
-
-  // const sortedArtwork = [...allArtwork].sort((allArtwork1, allArtwork2) => {
-  //   if (sortBy === "Price") {
-  //     return allArtwork1.estimated_value.localeCompare(allArtwork2.estimated_value);
-  //   } else if (sortBy === "Category") {
-  //     return allArtwork1.category.localeCompare(allArtwork2.category);
-  //   } else {
-  //     return null
-  //   }
-  // });
 
   const filteredSearchArtwork = allArtwork.filter((art) => {
     if (filterBy === "All") return true;
@@ -84,6 +74,7 @@ function App() {
                 onChangeBuyers={handleChangeBuyers}
                 setAllBuyers={setAllBuyers}
                 allBuyers={allBuyers}
+                isLoggedIn={isLoggedIn}
               />
             </Route>
             <Route exact path = "/Artworks" >

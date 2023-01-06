@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -7,9 +8,6 @@ function ArtworkDetails({ currentBuyer }) {
   const [newBid, setNewBid] = useState("");
   const { id } = useParams();
   const [isSold, setIsSold] = useState(false);
-
-  // console.log(bid)
-  // console.log(bid.bid_price)
 
   useEffect(() => {
     fetch(`http://localhost:9292/artworks/${id}`)
@@ -31,6 +29,8 @@ function ArtworkDetails({ currentBuyer }) {
     sold,
   } = artwork;
 
+  let number = estimated_value.toLocaleString();
+
   function handleNewBid(e) {
     e.preventDefault();
     // functions to optimistically render page?
@@ -51,8 +51,6 @@ function ArtworkDetails({ currentBuyer }) {
       .then((res) => res.json())
       .then((data) => setBid(data));
 
-    setBid("");
-
     if (newBid > bid.bid_price) {
       alert("Your bid has been submitted!");
     } else if (newBid <= bid.bid_price) {
@@ -70,59 +68,51 @@ function ArtworkDetails({ currentBuyer }) {
     })
       .then((res) => res.json())
       .then(setIsSold);
-    console.log(newBid);
-    console.log(bid.bid_price);
-    // bid.bid_price = newBid
   }
-
-  console.log(bid.bid_price);
-  console.log(newBid);
 
   function handleSetNewBid(e) {
     setNewBid(e.target.value);
   }
 
   return (
-    <div>
-      <div className="artworkDetails">
-        <h2 className="artworkName">{title}</h2>
-
+    <div className="artworkSingleContainer">
+      <div className="title-img-container">
         <img className="artwork_img" src={image_url} />
-
-        <h4 className="artworkArtist">Artist: {artist}</h4>
-        <h4 className="artwortYearCreated">Year Created: {year_created}</h4>
+      </div>
+      <div className="details-bidform-container">
+        <h4 className="artworkArtist">{artist}</h4>
+        <h2 className="artworkName">{title}</h2>
+        <h4 className="artwortYearCreated">{year_created}</h4>
         <h4 className="artworkCategory">Category: {category}</h4>
-        <h4 className="artworkEstimatedValue">
-          Estimated Value: ${estimated_value}
-        </h4>
-        {sold === true ? (
+        <h4 className="artworkEstimatedValue">Estimate: ${number} USD</h4>
+        {/* {sold === true ? (
           <h4> {currentBuyer.first_name} has won this artwork </h4>
-        ) : null}
-      </div>
-      <br></br>
-      <div className="artworkBid">
-        {sold === true ? (
-          <h3> Winning Bid: ${bid.bid_price} </h3>
-        ) : (
-          <h3> Current Bid: ${bid.bid_price} </h3>
-        )}
-      </div>
-      <div className="bidForm">
-        {sold === false ? (
-          <form onSubmit={handleNewBid}>
-            <input
-              className="bidInput"
-              type="text"
-              value={newBid}
-              onChange={handleSetNewBid}
-            ></input>
-            <button type="submit" className="glow-on-hover">
-              Place Bid
-            </button>
-          </form>
-        ) : (
-          "SOLD"
-        )}
+        ) : null} */}
+        <br></br>
+        <div className="artworkBid">
+          {sold === true ? (
+            <h3> Winning Bid: ${bid.bid_price} </h3>
+          ) : (
+            <h3> Current Bid: ${bid.bid_price} </h3>
+          )}
+        </div>
+        <div className="bidForm">
+          {sold === false ? (
+            <form onSubmit={handleNewBid}>
+              <input
+                className="bidInput"
+                type="number"
+                value={newBid}
+                onChange={handleSetNewBid}
+              ></input>
+              <button type="submit" className="bid-btn">
+                Place Bid
+              </button>
+            </form>
+          ) : (
+            "SOLD"
+          )}
+        </div>
       </div>
     </div>
   );
