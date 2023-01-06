@@ -1,9 +1,14 @@
 #root {
-  padding: 50px;
 }
 
 body {
   font-family: "Didact Gothic", sans-serif;
+  margin: 0px;
+}
+
+html {
+  overflow-x: hidden;
+  margin: 0px;
 }
 
 .artwork_img {
@@ -18,6 +23,7 @@ body {
   column-gap: 50px;
   row-gap: 50px;
   max-width: 100%;
+  padding-top: 50px;
   /* justify-content: center;
   align-items: center; */
 }
@@ -46,10 +52,13 @@ body {
 .navBar {
   display: flex;
   justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 0 5px 5px -2px gray;
 }
 
 .greeting {
-  font-size: 24px;
+  font-size: 20px;
   padding-left: 50px;
   font-weight: bold;
 }
@@ -67,4 +76,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.sold-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.artworkArtist {
+  font-size: 20px;
+  font-family: "DM Serif Display";
 }

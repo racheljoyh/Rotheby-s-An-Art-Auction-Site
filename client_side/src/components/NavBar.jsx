@@ -12,7 +12,7 @@ function NavBar({ isLoggedIn, currentBuyer }) {
       </h3>
       {isLoggedIn ? (
         <div className="navLinks-name">
-          <nav className="navBar">
+          <nav>
             <div className="linksContainer">
               <NavLink exact to="/">
                 Home
@@ -28,9 +28,9 @@ function NavBar({ isLoggedIn, currentBuyer }) {
           <h1 className="greeting"> Hello, {first_name}! </h1>
         </div>
       ) : (
-        <nav className="navBar">
+        <nav className="linksContainer">
           <NavLink exact to="/">
-            Home
+            Log In
           </NavLink>
         </nav>
       )}
