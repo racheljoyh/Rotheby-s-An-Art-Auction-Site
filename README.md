@@ -64,9 +64,9 @@ right corner of the repo page.
 The `app/controllers/application_controller.rb` file has an example GET route
 handler. Replace this route with routes for your project.
 
-You can start your server with:
+To start server-side server with:
 
-```console
+```console (cd into "server_side" folder)
 $ bundle exec rake server
 ```
 
@@ -82,12 +82,18 @@ frontend. To do this, `cd` out of the backend project directory, and use
 [create-react-app][] to generate the necessary code for your React frontend:
 
 ```console
-$ npx create-react-app my-app-frontend
+$ npx create-vite-app my-app-frontend
 ```
 
 After creating the project locally, you should also
 [create a repository on GitHub][create repo] to host your repo and help
 collaborate, if you're working with a partner.
+
+To start client side server with:
+
+```console (cd into "client_side" folder)
+$ npm run dev
+```
 
 ### Fetch Example
 
